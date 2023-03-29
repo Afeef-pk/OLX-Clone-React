@@ -1,13 +1,24 @@
 .footerParentDiv {
   width: 100vw;
 }
+
+.footerParentDiv .contentbg{
+  background: #ebeeef;
+}
 .footerParentDiv .content {
+  margin-left: 150px;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ebeeef;
+  
   padding: 16px;
 }
+
+/* .list li{
+  list-style: none;
+} */
+
 .footerParentDiv .content .heading {
   font-size: 24px;
   font-weight: bolder;

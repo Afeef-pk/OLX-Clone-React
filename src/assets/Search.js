@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Search(props) {
     return( <svg
-        width="25px"
+        width="18px"
         height="25px"
         viewBox="0 0 1024 1024"
         data-aut-id="icon"
