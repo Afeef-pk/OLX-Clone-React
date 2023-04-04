@@ -1,17 +1,14 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { AuthContext, FirebaseContext } from "./store/Context";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Create from "./Pages/Create";
 import View from "./Pages/ViewPost";
-import Post from "./store/PostContext";
-/**
- * ?  =====Import Components=====
- */
 import Home from "./Pages/Home";
-import { useContext, useEffect } from "react";
-import { AuthContext, FirebaseContext } from "./store/Context";
+import Post from "./store/PostContext";
 
 function App() {
   const { setUser } = useContext(AuthContext);

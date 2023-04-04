@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { FirebaseContext } from "../../store/Context";
-import { useHistory } from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import Logo from "../../olx-logo.png";
 import "./Login.css";
+import Swal from 'sweetalert2';
 
 function Login() {
   const history = useHistory()
@@ -15,13 +16,17 @@ function Login() {
     firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
       history.push('/')
     }).catch((error)=>{
-      alert(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid username or password',
+        text: 'Please check your username and password and try again',
+      });
     })
   };
   return (
     <div>
       <div className="loginParentDiv">
-        <img width="200px" height="200px" src={Logo}></img>
+        <img width="350px" height="200px" src={Logo} alt='logo'></img>
         <form onSubmit={handleLogin}>
           <label htmlFor="fname">Email</label>
           <br />
@@ -34,6 +39,7 @@ function Login() {
             name="email"
             defaultValue="John"
           />
+          <br />
           <br />
           <label htmlFor="lname">Password</label>
           <br />
@@ -50,7 +56,8 @@ function Login() {
           <br />
           <button>Login</button>
         </form>
-        <a>Signup</a>
+        <br />
+        <h6 style={{textAlign:'center'}}>Don't have an account ? <span><Link to='/signup'> Signup</Link></span></h6>
       </div>
     </div>
   );

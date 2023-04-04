@@ -11,26 +11,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
   padding: 16px;
 }
 
-/* .list li{
+.list li{
   list-style: none;
-} */
+}
+
 
 .footerParentDiv .content .heading {
+  margin-left: 40px;
   font-size: 24px;
   font-weight: bolder;
 }
 
 .footerParentDiv .footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 50px 10px 50px;
   background: #002f34;
+  justify-content: space-between;
   color: whitesmoke;
+  height: 70px;
+  font-size: 0.9rem;
 }
 
 .footerParentDiv .footer p {

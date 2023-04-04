@@ -7,10 +7,11 @@ import Arrow from "../../assets/Arrow";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
 import { AuthContext, FirebaseContext } from "../../store/Context";
+
 function Header() {
-  const history = useHistory()
+  const history = useHistory();
   const { user } = useContext(AuthContext);
-  const {firebase} = useContext(FirebaseContext)
+  const { firebase } = useContext(FirebaseContext);
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -19,7 +20,7 @@ function Header() {
         </div>
         <div className="placeSearch">
           <Search></Search>
-          <input type="text" value='India'/>
+          <input type="text" value="India" />
           <Arrow></Arrow>
         </div>
         <div className="productSearch">
@@ -38,20 +39,40 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span>{user ? user.displayName : <span> <Link style={{color:'black' , fontWeight:700}} to='/login'>  Login </Link> </span> }</span>
+          <span>
+            {user ? (
+              user.displayName
+            ) : (
+              <span>
+                {" "}
+                <Link style={{ color: "black", fontWeight: 700 }} to="/login">
+                  {" "}
+                  Login{" "}
+                </Link>{" "}
+              </span>
+            )}
+          </span>
           <hr />
         </div>
-        {user && <span onClick={()=>{
-          firebase.auth().signOut();
-          history.push('/login')
-        }}>Logout</span>}
-        <div className="sellMenu">
-          <SellButton></SellButton>
-          <div className="sellMenuContent">
-            <SellButtonPlus></SellButtonPlus>
-            <span>SELL</span>
+        {user && (
+          <span
+            onClick={() => {
+              firebase.auth().signOut();
+              history.push("/login");
+            }}
+            className="logout">
+            Logout
+          </span>
+        )}
+        <Link to={user ? "/create" : "/login"} >
+          <div className="sellMenu">
+            <SellButton></SellButton>
+            <div className="sellMenuContent">
+              <SellButtonPlus></SellButtonPlus>
+              <span>SELL</span>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
